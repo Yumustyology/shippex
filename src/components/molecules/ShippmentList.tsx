@@ -62,6 +62,7 @@ const ShipmentList: React.FC<ShipmentListProps> = ({
         </TouchableOpacity>
       </View>
       <FlatList
+        showsVerticalScrollIndicator={false}
         data={filteredShipments}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (

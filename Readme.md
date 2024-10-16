@@ -1,10 +1,6 @@
-Here is a README file for the project:
+# ShippEx App
 
----
-
-# shippex App
-
-shippex is a shipment management mobile app built with React Native and Expo. It includes features like shipment tracking, shipment selection, and a barcode scanning feature.
+ShippEx is a shipment management mobile app built with React Native and Expo. It includes features like shipment tracking, shipment selection, and a barcode scanning feature.
 
 ## Table of Contents
 - [Prerequisites](#prerequisites)
@@ -13,6 +9,7 @@ shippex is a shipment management mobile app built with React Native and Expo. It
   - [On Android](#on-android)
   - [On iOS](#on-ios)
   - [On Web](#on-web)
+  - [On Expo Go](#on-expo-go)
 - [Dependencies](#dependencies)
 - [Troubleshooting](#troubleshooting)
 - [Contributing](#contributing)
@@ -72,6 +69,23 @@ Before running this app, ensure you have the following installed:
    ```
 
 2. Open the browser at the URL displayed in the terminal.
+
+### On Expo Go
+
+To run the app on a physical device using the Expo Go app:
+
+1. Start the Expo development server with the following command:
+   ```bash
+   npm start
+   ```
+
+2. Open the Expo Go app on your physical device (available for download from Google Play Store or App Store).
+
+3. Scan the QR code displayed in the terminal with your device's camera or Expo Go scanner.
+
+4. The app will load on your device in Expo Go.
+
+> **Tip:** Ensure both your computer and mobile device are connected to the same Wi-Fi network for the best experience.
 
 ## Dependencies
 
