@@ -68,12 +68,12 @@ const ShipmentCard: React.FC<ShipmentCardProps> = ({
         </Text>
         <TouchableOpacity
           onPress={() => toggleExpand(shipment.id)}
-          style={styles.expandBox}
+          style={[styles.expandBox,shipment.isExpanded &&{backgroundColor:"#6E91EC",borderColor:"#dfe5f5"}]}
         >
           <MaterialCommunityIcons
             name="arrow-expand"
-            size={18}
-            color="#4561DB"
+            size={16}
+            color={shipment.isExpanded ? "white" : "#4561DB"}
           />
         </TouchableOpacity>
       </View>
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     borderRadius: 3000,
     width: 25,
     height: 25,
-    padding: 4,
+    borderWidth:1
   },
   blueText: {fontWeight:"400",color:"#2F50C1",fontSize:11},
   cityText: {fontWeight:"400",color:"#000000",fontSize:16},
