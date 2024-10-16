@@ -5,6 +5,7 @@ import Profile from './Profile';
 import Scan from './Scan';
 import Shipment from './Shipment';
 import Wallet from './Wallet';
+import { FontAwesome6 } from '@expo/vector-icons';
 
 const Tab = createBottomTabNavigator();
 
@@ -53,10 +54,7 @@ export default function AppNavigator() {
         component={Wallet}
         options={{
           tabBarIcon: ({ focused }) => (
-            <Image
-              source={focused ? require('../../assets/wallet-active.png') : require('../../assets/wallet-inactive.png')}
-              style={{ width: 30, height: 30 }}
-            />
+            <FontAwesome6 name="wallet" size={24} color={focused ? "#2F50C1" : "#A7A3B3"} />
           ),
         }}
       />

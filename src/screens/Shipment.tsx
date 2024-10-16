@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     color: "#00000099",
     fontSize: 14,
     fontWeight: "400",
-    marginBottom: 12,
+    marginBottom: 10,
   },
   noShipmentsText: {
     fontSize: 16,
