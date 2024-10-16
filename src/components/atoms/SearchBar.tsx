@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TextInput, StyleSheet } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 
 interface SearchBarProps {
@@ -17,6 +17,11 @@ const SearchBar: React.FC<SearchBarProps> = ({ searchText, setSearchText }) => {
         onChangeText={setSearchText}
         value={searchText}
       />
+      {searchText.length > 0 && (
+        <TouchableOpacity onPress={() => setSearchText('')}>
+          <Ionicons name="close" size={20} color="#A7A3B3" style={styles.clearIcon} />
+        </TouchableOpacity>
+      )}
     </View>
   );
 };
@@ -28,7 +33,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#F4F2F8',
     borderRadius: 8,
     paddingVertical: 10,
-    paddingHorizontal: 17
+    paddingHorizontal: 17,
   },
   searchInput: {
     flex: 1,
@@ -39,6 +44,9 @@ const styles = StyleSheet.create({
   searchIcon: {
     position: 'absolute',
     left: 16,
+  },
+  clearIcon: {
+    marginLeft: 10,
   },
 });
 
