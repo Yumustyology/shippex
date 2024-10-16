@@ -122,9 +122,11 @@ Users can select or deselect all shipments in the list with a single tap. This f
 ### 6. Expand Shipment Information
 Each shipment entry can be expanded to reveal more details. Users can tap on a shipment to view additional information, such as the origin, destination, and mobile contact. This feature enhances the user experience by keeping the interface clean while still providing access to detailed information.
 
-### 7. Bottom Tabs Navigation
-The app utilizes bottom tab navigation for easy access to different sections, such as Home, Shipments, and Profile. This design enhances usability, allowing users to navigate seamlessly between features without losing context.
+### 7. Call and WhatsApp Messaging
+The app provides functionality for users to directly call or message contacts via WhatsApp. Users can tap on a mobile number associated with a shipment to initiate a call or open a WhatsApp chat, streamlining communication and enhancing customer service capabilities.
 
+### 8. Bottom Tabs Navigation
+The app utilizes bottom tab navigation for easy access to different sections, such as Home, Shipments, and Profile. This design enhances usability, allowing users to navigate seamlessly between features without losing context.
 
 ## Troubleshooting
 
