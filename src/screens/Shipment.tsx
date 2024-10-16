@@ -1,42 +1,24 @@
-import React, { useState, useRef, useEffect } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  Button,
-  Modal,
-} from "react-native";
+import React, { useState, useRef } from "react";
+import { View, Text, StyleSheet, Modal } from "react-native";
 import SafeAreaContainer from "../components/molecules/SafeAreaContainer";
 import RBSheet from "react-native-raw-bottom-sheet";
-import { Shipment } from "../lib/types/Shippment.types";
+import { Shipment as ShipmentType } from "../lib/types/Shippment.types";
 import Header from "../components/atoms/Header";
 import ButtonsRow from "../components/molecules/ButtonsRow";
 import SearchBar from "../components/atoms/SearchBar";
 import ShipmentList from "../components/molecules/ShippmentList";
 import FilterBottomSheet from "../components/molecules/FilterBottomSheet";
-import { Camera, CameraView } from "expo-camera"; // Correct import
 import { ShipmentData } from "../lib/dummyData";
+import CodeScanner from "../components/molecules/CodeScanner";
 
-const ShipmentScreen: React.FC = () => {
-  const [shipments, setShipments] = useState<Shipment[]>(ShipmentData);
-  const [filteredShipments, setFilteredShipments] = useState<Shipment[]>(shipments);
+const Shipment: React.FC = () => {
+  const [shipments, setShipments] = useState<ShipmentType[]>(ShipmentData);
+  const [filteredShipments, setFilteredShipments] = useState<ShipmentType[]>(shipments);
   const [searchText, setSearchText] = useState<string>("");
   const [isSelectAll, setIsSelectAll] = useState<boolean>(false);
   const [isScanning, setIsScanning] = useState<boolean>(false);
-  const [hasPermission, setHasPermission] = useState<boolean | null>(null);
-  const [scannedData, setScannedData] = useState<string | null>(null);
   
   const filterSheetRef = useRef<RBSheet>(null);
-
-  useEffect(() => {
-    const getCameraPermissions = async () => {
-      const { status } = await Camera.requestCameraPermissionsAsync();
-      setHasPermission(status === "granted");
-    };
-
-    getCameraPermissions();
-  }, []);
 
   const toggleSelectAll = () => {
     const newValue = !isSelectAll;
@@ -74,25 +56,10 @@ const ShipmentScreen: React.FC = () => {
     });
   };
 
-  const handleBarCodeScanned = ({
-    type,
-    data,
-  }: {
-    type: string;
-    data: string;
-  }) => {
-    setScannedData(data);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+  const handleScanSuccess = (data: string) => {
+    alert(`Barcode data: ${data} has been scanned!`);
     setIsScanning(false);
   };
-
-  if (hasPermission === null) {
-    return <Text>Requesting for camera permission...</Text>;
-  }
-
-  if (hasPermission === false) {
-    return <Text>No access to camera</Text>;
-  }
 
   const handleFilterChange = (selectedFilters: string[]) => {
     if (selectedFilters.length === 0) {
@@ -161,36 +128,10 @@ const ShipmentScreen: React.FC = () => {
         transparent={true}
         onRequestClose={() => setIsScanning(false)}
       >
-        <View style={styles.scannerContainer}>
-          <CameraView
-            onBarcodeScanned={scannedData ? undefined : handleBarCodeScanned}
-            barcodeScannerSettings={{
-              barcodeTypes: [
-                "qr",
-                "pdf417",
-                "ean13",
-                "ean8",
-                "code128",
-                "code39",
-                "codabar",
-              ],
-            }}
-            ratio="16:9"
-            style={StyleSheet.absoluteFillObject}
-          />
-          {scannedData && (
-            <Button
-              title={"Tap to Scan Again"}
-              onPress={() => setScannedData(null)}
-            />
-          )}
-          <TouchableOpacity
-            onPress={() => setIsScanning(false)}
-            style={styles.cancelButton}
-          >
-            <Text style={styles.cancelText}>Cancel Scan</Text>
-          </TouchableOpacity>
-        </View>
+        <CodeScanner
+          onScanSuccess={handleScanSuccess}
+          onClose={() => setIsScanning(false)}
+        />
       </Modal>
     </SafeAreaContainer>
   );
@@ -203,20 +144,6 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     marginBottom: 24,
   },
-  scannerContainer: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    backgroundColor: "rgba(0, 0, 0, 0.8)",
-  },
-  cancelButton: {
-    position: "absolute",
-    bottom: 30,
-    padding: 10,
-    backgroundColor: "#fff",
-    borderRadius: 5,
-  },
-  cancelText: { fontSize: 16, color: "#000" },
   subtleText: {
     color: "#00000099",
     fontSize: 14,
@@ -231,4 +158,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ShipmentScreen;
+export default Shipment;
