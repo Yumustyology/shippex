@@ -16,8 +16,7 @@ export const loginState = entity<LoginState>({
   url: '', 
   email: '',
   password: '',
-  // TODO: change this to true later
-  buttonDisabled: false,
+  buttonDisabled: true,
   error: {
     email: '',
     password: '',

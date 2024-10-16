@@ -17,7 +17,7 @@ const Header: React.FC = () => {
 };
 
 const styles = StyleSheet.create({
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop:10, marginBottom: 20 },
+  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', marginTop:15, marginBottom: 20 },
   logo: { width: 120, height: 20, resizeMode: 'contain' },
   notification:{
       backgroundColor:'#F4F2F8',

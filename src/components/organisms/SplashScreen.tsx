@@ -1,24 +1,39 @@
 import React, { useEffect, useRef } from 'react';
-import { View, Animated, StyleSheet, Image, Text } from 'react-native';
+import { Animated, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const SplashScreen = () => {
   const scaleValue = useRef(new Animated.Value(0)).current;
   const navigation = useNavigation();
+  const backgroundColor = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
-   
     Animated.timing(scaleValue, {
-      toValue: 1, 
+      toValue: 1,
       duration: 2000,
       useNativeDriver: true,
-    }).start(() => {
-      (navigation as any).navigate('Onboarding');
-    });
-  }, [scaleValue, navigation]);
+    }).start();
+ 
+    setTimeout(() => {
+      Animated.timing(backgroundColor, {
+        toValue: 1, 
+        duration: 2000,
+        useNativeDriver: false,
+      }).start(() => {
+        (navigation as any).navigate('Onboarding');
+      });
+    }, 2000);
+
+    
+  }, [scaleValue, backgroundColor, navigation]);
+
+  const backgroundColorInterpolate = backgroundColor.interpolate({
+    inputRange: [0, 1],
+    outputRange: ['#FFFFFF', '#2F50C1'], 
+  });
 
   return (
-    <View style={styles.container}>
+    <Animated.View style={[styles.container, { backgroundColor: backgroundColorInterpolate }]}>
       <Animated.Image
         source={require('../../../assets/logo.png')} 
         style={[  
@@ -28,7 +43,7 @@ const SplashScreen = () => {
           },
         ]}
       />
-    </View>
+    </Animated.View>
   );
 };
 
@@ -36,8 +51,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#2F50C1',
+    alignItems: 'center'
   },
   logo: {
     width: 100,

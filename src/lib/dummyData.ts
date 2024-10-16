@@ -8,13 +8,11 @@
     
       origin: {
         city: "Alexandria",
-        // address: " Egypt"
         address: "456 Mediterranean Ave, Alexandria, Egypt"
       },
       destination: {
         city: "Cairo",
         address: "123 Nile St, Cairo, Egypt"
-        // address: "Egypt"
       },
       mobile: "+201234567890",
       isSelected: false,

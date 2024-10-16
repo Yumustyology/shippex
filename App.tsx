@@ -34,11 +34,11 @@ export default function App() {
     >
       <NavigationContainer>
         <Stack.Navigator
-          initialRouteName="Home"
+          initialRouteName="SplashScreen"
           screenOptions={{ headerShown: false }}
         >
-          <Stack.Screen name="Home" component={AppNavigator} />
           <Stack.Screen name="SplashScreen" component={SplashScreenComp} />
+          <Stack.Screen name="Home" component={AppNavigator} />
           <Stack.Screen name="Onboarding" component={LoginBottomSheet} />
         </Stack.Navigator>
         <StatusBar style="auto" />
