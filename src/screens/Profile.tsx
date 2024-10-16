@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#fff',
-    marginTop: 15
+    marginTop: 15,
   },
   profileHeader: {
     alignItems: 'center',
@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
   name: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#2F50C1',
   },
   email: {
     fontSize: 16,
@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   detailsTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#2F50C1',
     marginBottom: 10,
   },
   detailItem: {

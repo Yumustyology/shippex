@@ -22,12 +22,12 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: '#fff',
-    marginTop: 15
+    marginTop: 15,
   },
   title: {
     fontSize: 24,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#2F50C1', 
     marginBottom: 24,
   },
   balanceContainer: {
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
   balanceAmount: {
     fontSize: 28,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#2F50C1', 
     marginTop: 10,
   },
   transactionContainer: {
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
   transactionTitle: {
     fontSize: 18,
     fontWeight: 'bold',
-    color: '#000',
+    color: '#2F50C1', 
     marginBottom: 10,
   },
   transactionText: {
