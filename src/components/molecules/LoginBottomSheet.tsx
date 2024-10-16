@@ -59,7 +59,7 @@ const LoginBottomSheet: React.FC = () => {
 
     navigation.reset({
       index: 0,
-      routes: [{ name: "Home" }],
+      routes: [{ name: 'Home' }],
     });
 
     refRBSheet.current?.close();
