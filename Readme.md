@@ -102,6 +102,30 @@ This project uses the following major dependencies:
 
 For a full list of dependencies, see the `package.json` file.
 
+## Features
+
+### 1. Barcode Scanning
+The app includes a barcode scanning feature, allowing users to quickly and accurately enter shipment information by scanning barcodes. This functionality enhances efficiency by reducing manual entry errors.
+
+### 2. Shipment Filtering
+Users can filter shipments based on various criteria, such as status (e.g., received, delivered, canceled) or date. This feature simplifies tracking and management by allowing users to focus on specific shipments that require attention.
+
+### 3. Search Functionality
+The integrated search bar enables users to find specific shipments easily by entering keywords or AWB (Air Waybill) numbers. The search updates dynamically, providing instant feedback as users type.
+
+### 4. Pull to Refresh
+To keep shipment data up to date, the app supports a pull-to-refresh feature. Users can simply swipe down on the shipment list to refresh the content and retrieve the latest updates from the server.
+
+### 5. Select and Deselect All
+Users can select or deselect all shipments in the list with a single tap. This feature is particularly useful for bulk actions, allowing users to manage multiple shipments simultaneously.
+
+### 6. Expand Shipment Information
+Each shipment entry can be expanded to reveal more details. Users can tap on a shipment to view additional information, such as the origin, destination, and mobile contact. This feature enhances the user experience by keeping the interface clean while still providing access to detailed information.
+
+### 7. Bottom Tabs Navigation
+The app utilizes bottom tab navigation for easy access to different sections, such as Home, Shipments, and Profile. This design enhances usability, allowing users to navigate seamlessly between features without losing context.
+
+
 ## Troubleshooting
 
 - **Expo Issues**: If you encounter issues with the Expo app, make sure it is updated to the latest version.
